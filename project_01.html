@@ -11773,11 +11773,16 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Task 2</strong> What is an appropriate set of hypotheses for this task? What kind of statistical test do you expect to perform? Justify your choices.</p>
-<p>H0 (Null Hypothesis): There is either no difference in time it takes to name the ink colors between the congruent and incongruent test setup, or it takes less time in the incongruent setup. <strong>µ(incongruent setup) ≤ µ(congruent setup)</strong></p>
-<p>H1 (Alternative Hypothesis): It takes more time to name the ink colors in the incongruent setup. 
-<strong>µ(incongruent setup) &gt; µ(congruent setup)</strong></p>
+<p>µC = mean of the population that performed the stroop task with the congruent words condition</p>
+<p>µI = mean of the population that performed the stroop task with the incongruent words condition</p>
+<p>Both population means are estimated from the sample means Xc (sample of stroop task with congruent words condition) and Xi (sample of stroop task with incongruent words condition)</p>
+<p>H0 (Null Hypothesis): There is either no difference in time it takes to name the ink colors between the congruent stroop test population (µC) and incongruent stroop test population (µI), or it takes less time in the incongruent stroop test population. <strong>µI ≤ µC</strong></p>
+<p>H1 (Alternative Hypothesis): It takes more time to name the ink colors in the incongruent stroop test population. 
+<strong>µI &gt; µC</strong></p>
 <p>I assume the test results, and thus the alternative hypothesis, to be directional, because the incongruent setup requires to perform two tasks (read the word followed by identifying the correct color) in contrast to the congruent setup, which requires only one task (read the word). Thus, it is consequent that performing two tasks will take more time.</p>
-<p>Based on the posed hypothesis, I will perform a dependent t-test, because two conditions on the same subjects are being tested. Moreover, it will be a one-tailed t-test, since the hypothesis to be tested is directional.</p>
+<p>Based on the posed hypothesis, I will perform a dependent t-test, because two conditions on the same subjects are being tested (within subject design). Moreover, it will be a one-tailed t-test, since the hypothesis to be tested is directional.</p>
+<p>In general, a t-test will be prefered over a z-test, because population parameters (mean=µ and standard deviation=sigma) are not known and sample size (24) is rather small. Hence, each sigma (congruent and incongruent population, respectively) is estimated from the sample standard deviation using Bessel's Correction (n-1 degrees of freedom), which corrects for the sampling bias (most population data falls within 1-2 standard deviations, hence the sample contains most likely data points from this range (especially if sample size is small) and therefore <strong>underestimates the population standard deviation</strong>). Because of the less accurate standard deviation the t-distribution with longer tails is used for the hypothesis test. This will basically reduce the number of false positives, as now with decreasing degrees of freedom a bigger t-statistic is required to be significant at the same alpha value (e.g. alpha=.05).
+Furthermore the sampe distributions (see histogram in task 4) show a "nearly" normal distribution and are not highly skewed, respectively. Hence the central limit theorem will kick in, which allows parametric hypothesis tests -such as the t-test- and instead does not require non-parametric tests -such as the wilcoxon sign-rank test-</p>
 
 </div>
 </div>
@@ -12435,7 +12440,7 @@ rkJggg==
 <p><strong>Task 5</strong> Now, perform the statistical test and report your results. What is your confidence level and your critical statistic value? Do you reject the null hypothesis or fail to reject it? Come to a conclusion in terms of the experiment task. Did the results match up with your expectations?</p>
 <p><strong>Parameters for the t-test</strong></p>
 <p>confidence level = 95%</p>
-<p>critical statistic value (t-critical) = 1.717 (alpha level = 0.05, degrees of freedom = 23)</p>
+<p>critical statistic value (t-critical) = 1.714 (alpha level = 0.05, degrees of freedom = 23)</p>
 <p>sample size = 24</p>
 <p><strong>Results report</strong></p>
 <p>There was a significant effect for stroop task conditions , <strong>t(23) = 8.02, p &lt; .05 (<a href="http://graphpad.com/quickcalcs/pValue1/">http://graphpad.com/quickcalcs/pValue1/</a>), one tailed</strong>, with subjects performing the task in the "incongruent setup" requiring longer time to finish, <strong>confidence interval on the mean difference between the stroop task in congruent condition and the stroop task in incongruent condition; 95% CI = (5.91-10.02 min) </strong>.
@@ -12519,6 +12524,8 @@ compare the time it takes to finish the test for each condition.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="References-used-for-the-project">References used for the project<a class="anchor-link" href="#References-used-for-the-project">&#182;</a></h4><p><strong><a href="http://graphpad.com/">http://graphpad.com/</a></strong> to convert the t-statistic from the the t-test into p-value</p>
 <p><strong><a href="https://en.wikipedia.org/wiki">https://en.wikipedia.org/wiki</a></strong> to obtain information about the stroop task</p>
+<p><strong>statistics in medicine MOOC on stanford online</strong></p>
+<p><strong><a href="http://www.statisticshowto.com/when-to-use-a-t-score-vs-z-score/">http://www.statisticshowto.com/when-to-use-a-t-score-vs-z-score/</a></strong></p>
 
 </div>
 </div>
